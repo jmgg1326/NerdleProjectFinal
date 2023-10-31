@@ -19,6 +19,12 @@ def relative_to_assets(path: str) -> Path:
 class Interfaz:
 
     def __init__(self):
+        self.window = Tk()
+
+        self.window.geometry("827x642")
+        self.window.configure(bg="#74296D")
+        self.window.resizable(False, False)
+
         self.canvas = None
 
         self.imagen_alien = None
@@ -29,6 +35,30 @@ class Interfaz:
 
         self.imagen_charizard = None
         self.canva_pokemon_charizard = None
+
+        self.imagen_estrella_uno = None
+        self.canvas_estrella_uno = None
+
+        self.imagen_estrella_dos = None
+        self.canvas_estrella_dos = None
+
+        self.imagen_estrella_tres = None
+        self.canvas_estrella_tres = None
+
+        self.imagen_estrella_cuatro = None
+        self.canvas_estrella_cuatro = None
+
+        self.imagen_estrella_cinco = None
+        self.canvas_estrella_cinco = None
+
+        self.imagen_estrella_seis = None
+        self.canvas_estrella_seis = None
+
+        self.imagen_estrella_siete = None
+        self.canvas_estrella_siete = None
+
+        self.imagen_estrella_ocho = None
+        self.canvas_estrella_ocho = None
 
         self.imagen_boton_menos = None
         self.boton_menos = None
@@ -126,6 +156,10 @@ class Interfaz:
         self.imagen_corazon = None
         self.canva_corazon = None
 
+        self.entry_bg_numero_vidas = None
+        self.imagen_numero_vidas = None
+        self.numero_vidas = None
+
 
 
 
@@ -135,6 +169,7 @@ class Interfaz:
 
 
     def graficos_ventana(self):
+
         self.canvas = Canvas(
             window,
             bg="#74296D",
@@ -152,7 +187,7 @@ class Interfaz:
         self.imagen_alien = PhotoImage(
             file=relative_to_assets("image_1.png"))
 
-        self.canva_alien = canvas.create_image(
+        self.canva_alien = self.canvas.create_image(
             209.0,
             35.0,
             image=self.imagen_alien
@@ -162,7 +197,7 @@ class Interfaz:
         self.imagen_corazon = PhotoImage(
             file=relative_to_assets("image_4.png"))
 
-        self.canva_corazon = canvas.create_image(
+        self.canva_corazon = self.canvas.create_image(
             558.0,
             27.77828073501587,
             image=self.imagen_corazon
@@ -172,7 +207,7 @@ class Interfaz:
         self.imagen_squirtle = PhotoImage(
             file=relative_to_assets("image_2.png"))
 
-        self.canva_pokemon_squirtle = canvas.create_image(
+        self.canva_pokemon_squirtle = self.canvas.create_image(
             760.0,
             592.0,
             image=self.imagen_squirtle
@@ -182,10 +217,91 @@ class Interfaz:
         self.imagen_charizard = PhotoImage(
             file=relative_to_assets("image_3.png"))
 
-        self.canva_pokemon_charizard = canvas.create_image(
+        self.canva_pokemon_charizard = self.canvas.create_image(
             90.0,
             573.0,
             image=self.imagen_charizard
+        )
+
+    def imagenes_de_estrellas(self):
+        # 1 estrella
+        self.imagen_estrella_uno = PhotoImage(
+            file=relative_to_assets("image_5.png"))
+
+        self.canvas_estrella_uno = self.canvas.create_image(
+            55.000000953674316,
+            61.0,
+            image=self.imagen_estrella_uno
+        )
+
+        # 2 estrella
+        self.imagen_estrella_dos = PhotoImage(
+            file=relative_to_assets("image_6.png"))
+
+        self.canvas_estrella_dos = self.canvas.create_image(
+            518.0,
+            597.0,
+            image=self.imagen_estrella_dos
+        )
+
+        # 3 estrella
+        self.imagen_estrella_tres = PhotoImage(
+            file=relative_to_assets("image_7.png"))
+
+        self.canvas_estrella_tres = self.canvas.create_image(
+            342.0,
+            63.0,
+            image=self.imagen_estrella_tres
+        )
+
+        # 4 estrella
+        self.imagen_estrella_cuatro = PhotoImage(
+            file=relative_to_assets("image_8.png"))
+
+        self.canvas_estrella_cuatro = self.canvas.create_image(
+            222.00001525878906,
+            368.0,
+            image=self.imagen_estrella_cuatro
+        )
+
+        # 5 estrella
+        self.imagen_estrella_cinco = PhotoImage(
+            file=relative_to_assets("image_9.png"))
+
+        self.canvas_estrella_cinco = self.canvas.create_image(
+            408.0,
+            278.0,
+            image=self.imagen_estrella_cinco
+        )
+
+        #  6 estrella
+        self.imagen_estrella_seis = PhotoImage(
+            file=relative_to_assets("image_10.png"))
+
+        self.canvas_estrella_seis = self.canvas.create_image(
+            254.0,
+            610.0,
+            image=self.imagen_estrella_seis
+        )
+
+        # 7 estrella
+        self.imagen_estrella_siete = PhotoImage(
+            file=relative_to_assets("image_11.png"))
+
+        self.canvas_estrella_siete = self.canvas.create_image(
+            796.0,
+            227.0,
+            image=self.imagen_estrella_siete
+        )
+
+        # 8 estrella
+        self.imagen_estrella_ocho = PhotoImage(
+            file=relative_to_assets("image_12.png"))
+
+        self.canvas_estrella_ocho = self.canvas.create_image(
+            54.999990463256836,
+            424.0,
+            image=self.imagen_estrella_ocho
         )
 
     def boton_de_menos(self):
@@ -501,7 +617,7 @@ class Interfaz:
         self.imagen_entrada_uno = PhotoImage(
             file=relative_to_assets("entry_1.png"))
 
-        self.entry_bg_1 = canvas.create_image(
+        self.entry_bg_1 = self.canvas.create_image(
             49.5,
             139.5,
             image=self.imagen_entrada_uno
@@ -532,7 +648,7 @@ class Interfaz:
 
         self.entrada_dos = PhotoImage(
             file=relative_to_assets("entry_2.png"))
-        self.entry_bg_2 = canvas.create_image(
+        self.entry_bg_2 = self.canvas.create_image(
             481.5,
             142.5,
             image=self.entrada_dos
@@ -563,7 +679,7 @@ class Interfaz:
         self.imagen_entrada_tres = PhotoImage(
             file=relative_to_assets("entry_3.png"))
 
-        self.entry_bg_3 = canvas.create_image(
+        self.entry_bg_3 = self.canvas.create_image(
             568.5,
             143.5,
             image=self.imagen_entrada_tres
@@ -594,7 +710,7 @@ class Interfaz:
         self.imagen_entrada_cuatro = PhotoImage(
             file=relative_to_assets("entry_4.png"))
 
-        self.entry_bg_4 = canvas.create_image(
+        self.entry_bg_4 = self.canvas.create_image(
             135.5,
             140.5,
             image=self.imagen_entrada_cuatro
@@ -624,7 +740,7 @@ class Interfaz:
 
         self.imagen_entrada_cinco = PhotoImage(
             file=relative_to_assets("entry_5.png"))
-        self.entry_bg_5 = canvas.create_image(
+        self.entry_bg_5 = self.canvas.create_image(
             222.5,
             140.5,
             image=self.imagen_entrada_cinco
@@ -654,7 +770,7 @@ class Interfaz:
         self.imagen_entrada_seis = PhotoImage(
             file=relative_to_assets("entry_6.png"))
 
-        self.entry_bg_6 = canvas.create_image(
+        self.entry_bg_6 = self.canvas.create_image(
             307.5,
             141.5,
             image=self.imagen_entrada_seis
@@ -686,7 +802,7 @@ class Interfaz:
         self.imagen_entrada_siete = PhotoImage(
             file=relative_to_assets("entry_7.png"))
 
-        self.entry_bg_7 = canvas.create_image(
+        self.entry_bg_7 = self.canvas.create_image(
             394.5,
             141.5,
             image=self.imagen_entrada_siete
@@ -717,7 +833,7 @@ class Interfaz:
         self.imagen_entrada_ocho = PhotoImage(
             file=relative_to_assets("entry_8.png"))
 
-        self.entry_bg_8 = canvas.create_image(
+        self.entry_bg_8 = self.canvas.create_image(
             655.5,
             143.5,
             image=self.imagen_entrada_ocho
@@ -731,6 +847,37 @@ class Interfaz:
 
         self.entrada_ocho.place(
             x=642.0,
+            y=122.0,
+            width=27.0,
+            height=41.0
+        )
+
+    def entrada_numero_nueve(self):
+        self.canvas.create_rectangle(
+            701.0,
+            115.0,
+            786.0,
+            171.0,
+            fill="#74296D",
+            outline="")
+
+        self.imagen_entrada_nueve = PhotoImage(
+            file=relative_to_assets("entry_10.png"))
+
+        self.entry_bg_9 = self.canvas.create_image(
+            742.5,
+            143.5,
+            image=self.imagen_entrada_nueve
+        )
+        self.entrada_nueve = Entry(
+            bd=0,
+            bg="#B694FF",
+            fg="#000716",
+            highlightthickness=0
+        )
+
+        self.entrada_nueve.place(
+            x=729.0,
             y=122.0,
             width=27.0,
             height=41.0
@@ -774,6 +921,30 @@ class Interfaz:
             height=58.0
         )
 
+    def numero_de_vidas(self):
+        self.imagen_numero_vidas = PhotoImage(
+            file=relative_to_assets("entry_9.png"))
+
+        self.entry_bg_numero_vidas = self.canvas.create_image(
+            475.5,
+            34.5,
+            image=self.imagen_numero_vidas
+        )
+
+        self.numero_vidas = Entry(
+            bd=0,
+            bg="#F975EC",
+            fg="#000716",
+            highlightthickness=0
+        )
+
+        self.numero_vidas.place(
+            x=451.0,
+            y=13.0,
+            width=49.0,
+            height=41.0
+        )
+
 
 
 
@@ -785,744 +956,8 @@ window = Tk()
 window.geometry("827x642")
 window.configure(bg="#74296D")
 
-#
-canvas = Canvas(
-    window,
-    bg="#74296D",
-    height=642,
-    width=827,
-    bd=0,
-    highlightthickness=0,
-    relief="ridge"
-)
 
-canvas.place(x=0, y=0)
 
-#
-image_image_1 = PhotoImage(
-    file=relative_to_assets("image_1.png"))
-image_1 = canvas.create_image(
-    209.0,
-    35.0,
-    image=image_image_1
-)
 
-#
-image_image_2 = PhotoImage(
-    file=relative_to_assets("image_2.png"))
-image_2 = canvas.create_image(
-    760.0,
-    592.0,
-    image=image_image_2
-)
-
-#
-button_image_1 = PhotoImage(
-    file=relative_to_assets("button_1.png"))
-button_1 = Button(
-    image=button_image_1,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_1 clicked"),
-    relief="flat"
-)
-button_1.place(
-    x=67.0,
-    y=431.0,
-    width=141.0,
-    height=67.0
-)
-
-#
-button_image_2 = PhotoImage(
-    file=relative_to_assets("button_2.png"))
-button_2 = Button(
-    image=button_image_2,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_2 clicked"),
-    relief="flat"
-)
-button_2.place(
-    x=249.0,
-    y=434.0,
-    width=141.0,
-    height=67.0
-)
-
-
-#
-button_image_3 = PhotoImage(
-    file=relative_to_assets("button_3.png"))
-button_3 = Button(
-    image=button_image_3,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_3 clicked"),
-    relief="flat"
-)
-button_3.place(
-    x=437.0,
-    y=436.0,
-    width=141.0,
-    height=62.0
-)
-
-
-#
-button_image_4 = PhotoImage(
-    file=relative_to_assets("button_4.png"))
-button_4 = Button(
-    image=button_image_4,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_4 clicked"),
-    relief="flat"
-)
-button_4.place(
-    x=618.0,
-    y=431.0,
-    width=141.0,
-    height=67.0
-)
-
-
-#
-button_image_5 = PhotoImage(
-    file=relative_to_assets("button_5.png"))
-button_5 = Button(
-    image=button_image_5,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_5 clicked"),
-    relief="flat"
-)
-button_5.place(
-    x=622.0,
-    y=356.0,
-    width=141.0,
-    height=67.0
-)
-
-
-#
-button_image_6 = PhotoImage(
-    file=relative_to_assets("button_6.png"))
-button_6 = Button(
-    image=button_image_6,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_6 clicked"),
-    relief="flat"
-)
-button_6.place(
-    x=249.0,
-    y=280.0,
-    width=141.0,
-    height=67.0
-)
-
-
-#
-button_image_7 = PhotoImage(
-    file=relative_to_assets("button_7.png"))
-button_7 = Button(
-    image=button_image_7,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_7 clicked"),
-    relief="flat"
-)
-button_7.place(
-    x=249.0,
-    y=208.0,
-    width=141.0,
-    height=65.0
-)
-
-
-#
-button_image_8 = PhotoImage(
-    file=relative_to_assets("button_8.png"))
-button_8 = Button(
-    image=button_image_8,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_8 clicked"),
-    relief="flat"
-)
-button_8.place(
-    x=63.0,
-    y=206.0,
-    width=141.0,
-    height=67.0
-)
-
-
-#3
-button_image_9 = PhotoImage(
-    file=relative_to_assets("button_9.png"))
-button_9 = Button(
-    image=button_image_9,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_9 clicked"),
-    relief="flat"
-)
-button_9.place(
-    x=433.0,
-    y=208.0,
-    width=141.0,
-    height=67.0
-)
-
-
-#7
-button_image_10 = PhotoImage(
-    file=relative_to_assets("button_10.png"))
-button_10 = Button(
-    image=button_image_10,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_10 clicked"),
-    relief="flat"
-)
-button_10.place(
-    x=438.0,
-    y=285.0,
-    width=136.0,
-    height=64.0
-)
-
-
-#+
-button_image_11 = PhotoImage(
-    file=relative_to_assets("button_11.png"))
-button_11 = Button(
-    image=button_image_11,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_11 clicked"),
-    relief="flat"
-)
-button_11.place(
-    x=437.0,
-    y=356.0,
-    width=141.0,
-    height=67.0
-)
-
-
-#5
-button_image_12 = PhotoImage(
-    file=relative_to_assets("button_12.png"))
-button_12 = Button(
-    image=button_image_12,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_12 clicked"),
-    relief="flat"
-)
-button_12.place(
-    x=65.0,
-    y=282.0,
-    width=141.0,
-    height=67.0
-)
-
-
-
-#9
-button_image_13 = PhotoImage(
-    file=relative_to_assets("button_13.png"))
-button_13 = Button(
-    image=button_image_13,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_13 clicked"),
-    relief="flat"
-)
-button_13.place(
-    x=65.0,
-    y=358.0,
-    width=141.0,
-    height=67.0
-)
-
-
-#0
-button_image_14 = PhotoImage(
-    file=relative_to_assets("button_14.png"))
-button_14 = Button(
-    image=button_image_14,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_14 clicked"),
-    relief="flat"
-)
-button_14.place(
-    x=249.0,
-    y=359.0,
-    width=141.0,
-    height=67.0
-)
-
-
-#4
-button_image_15 = PhotoImage(
-    file=relative_to_assets("button_15.png"))
-button_15 = Button(
-    image=button_image_15,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_15 clicked"),
-    relief="flat"
-)
-button_15.place(
-    x=615.0,
-    y=219.0,
-    width=145.0,
-    height=68.0
-)
-
-
-#8
-button_image_16 = PhotoImage(
-    file=relative_to_assets("button_16.png"))
-button_16 = Button(
-    image=button_image_16,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_16 clicked"),
-    relief="flat"
-)
-button_16.place(
-    x=622.0,
-    y=280.0,
-    width=141.0,
-    height=67.0
-)
-
-
-
-#primer entry
-canvas.create_rectangle(
-    8.0,
-    111.0,
-    93.0,
-    167.0,
-    fill="#74296D",
-    outline="")
-
-entry_image_1 = PhotoImage(
-    file=relative_to_assets("entry_1.png"))
-entry_bg_1 = canvas.create_image(
-    49.5,
-    139.5,
-    image=entry_image_1
-)
-entry_1 = Entry(
-    bd=0,
-    bg="#B694FF",
-    fg="#000716",
-    highlightthickness=0
-)
-entry_1.place(
-    x=36.0,
-    y=118.0,
-    width=27.0,
-    height=41.0
-)
-
-
-
-
-#segundo entry
-canvas.create_rectangle(
-    440.0,
-    114.0,
-    525.0,
-    170.0,
-    fill="#74296D",
-    outline="")
-
-entry_image_2 = PhotoImage(
-    file=relative_to_assets("entry_2.png"))
-entry_bg_2 = canvas.create_image(
-    481.5,
-    142.5,
-    image=entry_image_2
-)
-entry_2 = Entry(
-    bd=0,
-    bg="#B694FF",
-    fg="#000716",
-    highlightthickness=0
-)
-entry_2.place(
-    x=468.0,
-    y=121.0,
-    width=27.0,
-    height=41.0
-)
-
-
-
-#tercer entry
-canvas.create_rectangle(
-    527.0,
-    115.0,
-    612.0,
-    171.0,
-    fill="#74296D",
-    outline="")
-
-entry_image_3 = PhotoImage(
-    file=relative_to_assets("entry_3.png"))
-entry_bg_3 = canvas.create_image(
-    568.5,
-    143.5,
-    image=entry_image_3
-)
-entry_3 = Entry(
-    bd=0,
-    bg="#B694FF",
-    fg="#000716",
-    highlightthickness=0
-)
-entry_3.place(
-    x=555.0,
-    y=122.0,
-    width=27.0,
-    height=41.0
-)
-
-
-#cuarto entry
-canvas.create_rectangle(
-    94.0,
-    112.0,
-    179.0,
-    168.0,
-    fill="#74296D",
-    outline="")
-
-entry_image_4 = PhotoImage(
-    file=relative_to_assets("entry_4.png"))
-entry_bg_4 = canvas.create_image(
-    135.5,
-    140.5,
-    image=entry_image_4
-)
-entry_4 = Entry(
-    bd=0,
-    bg="#B694FF",
-    fg="#000716",
-    highlightthickness=0
-)
-entry_4.place(
-    x=122.0,
-    y=119.0,
-    width=27.0,
-    height=41.0
-)
-
-
-#quinto entry
-canvas.create_rectangle(
-    181.0,
-    112.0,
-    266.0,
-    168.0,
-    fill="#74296D",
-    outline="")
-
-entry_image_5 = PhotoImage(
-    file=relative_to_assets("entry_5.png"))
-entry_bg_5 = canvas.create_image(
-    222.5,
-    140.5,
-    image=entry_image_5
-)
-entry_5 = Entry(
-    bd=0,
-    bg="#B694FF",
-    fg="#000716",
-    highlightthickness=0
-)
-entry_5.place(
-    x=209.0,
-    y=119.0,
-    width=27.0,
-    height=41.0
-)
-
-
-#sexto entry
-canvas.create_rectangle(
-    266.0,
-    113.0,
-    351.0,
-    169.0,
-    fill="#74296D",
-    outline="")
-
-entry_image_6 = PhotoImage(
-    file=relative_to_assets("entry_6.png"))
-entry_bg_6 = canvas.create_image(
-    307.5,
-    141.5,
-    image=entry_image_6
-)
-entry_6 = Entry(
-    bd=0,
-    bg="#B694FF",
-    fg="#000716",
-    highlightthickness=0
-)
-entry_6.place(
-    x=294.0,
-    y=120.0,
-    width=27.0,
-    height=41.0
-)
-
-
-
-
-
-#septimo entry
-canvas.create_rectangle(
-    353.0,
-    113.0,
-    438.0,
-    169.0,
-    fill="#74296D",
-    outline="")
-
-entry_image_7 = PhotoImage(
-    file=relative_to_assets("entry_7.png"))
-entry_bg_7 = canvas.create_image(
-    394.5,
-    141.5,
-    image=entry_image_7
-)
-entry_7 = Entry(
-    bd=0,
-    bg="#B694FF",
-    fg="#000716",
-    highlightthickness=0
-)
-entry_7.place(
-    x=381.0,
-    y=120.0,
-    width=27.0,
-    height=41.0
-)
-
-
-
-
-#octaco entry
-canvas.create_rectangle(
-    614.0,
-    115.0,
-    699.0,
-    171.0,
-    fill="#74296D",
-    outline="")
-
-entry_image_8 = PhotoImage(
-    file=relative_to_assets("entry_8.png"))
-entry_bg_8 = canvas.create_image(
-    655.5,
-    143.5,
-    image=entry_image_8
-)
-entry_8 = Entry(
-    bd=0,
-    bg="#B694FF",
-    fg="#000716",
-    highlightthickness=0
-)
-entry_8.place(
-    x=642.0,
-    y=122.0,
-    width=27.0,
-    height=41.0
-)
-
-
-
-# charizard
-image_image_3 = PhotoImage(
-    file=relative_to_assets("image_3.png"))
-image_3 = canvas.create_image(
-    90.0,
-    573.0,
-    image=image_image_3
-)
-
-
-#estadisticas
-button_image_17 = PhotoImage(
-    file=relative_to_assets("button_17.png"))
-button_17 = Button(
-    image=button_image_17,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_17 clicked"),
-    relief="flat"
-)
-button_17.place(
-    x=639.0,
-    y=1.0,
-    width=71.0,
-    height=58.0
-)
-
-
-#boton guia
-button_image_18 = PhotoImage(
-    file=relative_to_assets("button_18.png"))
-button_18 = Button(
-    image=button_image_18,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_18 clicked"),
-    relief="flat"
-)
-button_18.place(
-    x=747.0,
-    y=0.0,
-    width=60.0,
-    height=58.0
-)
-
-
-
-#corazon
-image_image_4 = PhotoImage(
-    file=relative_to_assets("image_4.png"))
-image_4 = canvas.create_image(
-    558.0,
-    27.77828073501587,
-    image=image_image_4
-)
-
-
-
-#vidas
-entry_image_9 = PhotoImage(
-    file=relative_to_assets("entry_9.png"))
-entry_bg_9 = canvas.create_image(
-    475.5,
-    34.5,
-    image=entry_image_9
-)
-entry_9 = Entry(
-    bd=0,
-    bg="#F975EC",
-    fg="#000716",
-    highlightthickness=0
-)
-entry_9.place(
-    x=451.0,
-    y=13.0,
-    width=49.0,
-    height=41.0
-)
-
-image_image_5 = PhotoImage(
-    file=relative_to_assets("image_5.png"))
-image_5 = canvas.create_image(
-    55.000000953674316,
-    61.0,
-    image=image_image_5
-)
-
-image_image_6 = PhotoImage(
-    file=relative_to_assets("image_6.png"))
-image_6 = canvas.create_image(
-    518.0,
-    597.0,
-    image=image_image_6
-)
-
-image_image_7 = PhotoImage(
-    file=relative_to_assets("image_7.png"))
-image_7 = canvas.create_image(
-    342.0,
-    63.0,
-    image=image_image_7
-)
-
-image_image_8 = PhotoImage(
-    file=relative_to_assets("image_8.png"))
-image_8 = canvas.create_image(
-    222.00001525878906,
-    368.0,
-    image=image_image_8
-)
-
-image_image_9 = PhotoImage(
-    file=relative_to_assets("image_9.png"))
-image_9 = canvas.create_image(
-    408.0,
-    278.0,
-    image=image_image_9
-)
-
-image_image_10 = PhotoImage(
-    file=relative_to_assets("image_10.png"))
-image_10 = canvas.create_image(
-    254.0,
-    610.0,
-    image=image_image_10
-)
-
-image_image_11 = PhotoImage(
-    file=relative_to_assets("image_11.png"))
-image_11 = canvas.create_image(
-    796.0,
-    227.0,
-    image=image_image_11
-)
-
-image_image_12 = PhotoImage(
-    file=relative_to_assets("image_12.png"))
-image_12 = canvas.create_image(
-    54.999990463256836,
-    424.0,
-    image=image_image_12
-)
-
-canvas.create_rectangle(
-    701.0,
-    115.0,
-    786.0,
-    171.0,
-    fill="#74296D",
-    outline="")
-
-entry_image_10 = PhotoImage(
-    file=relative_to_assets("entry_10.png"))
-entry_bg_10 = canvas.create_image(
-    742.5,
-    143.5,
-    image=entry_image_10
-)
-entry_10 = Entry(
-    bd=0,
-    bg="#B694FF",
-    fg="#000716",
-    highlightthickness=0
-)
-entry_10.place(
-    x=729.0,
-    y=122.0,
-    width=27.0,
-    height=41.0
-)
 window.resizable(False, False)
 window.mainloop()
