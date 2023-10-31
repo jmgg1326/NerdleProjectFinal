@@ -171,7 +171,7 @@ class Interfaz:
     def graficos_ventana(self):
 
         self.canvas = Canvas(
-            window,
+            self.window,
             bg="#74296D",
             height=642,
             width=827,
@@ -648,6 +648,7 @@ class Interfaz:
 
         self.entrada_dos = PhotoImage(
             file=relative_to_assets("entry_2.png"))
+
         self.entry_bg_2 = self.canvas.create_image(
             481.5,
             142.5,
@@ -951,13 +952,3 @@ class Interfaz:
 
 
 
-window = Tk()
-
-window.geometry("827x642")
-window.configure(bg="#74296D")
-
-
-
-
-window.resizable(False, False)
-window.mainloop()
