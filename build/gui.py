@@ -27,6 +27,9 @@ class Interfaz:
         self.imagen_squirtle = None
         self.canva_pokemon_squirtle = None
 
+        self.imagen_charizard = None
+        self.canva_pokemon_charizard = None
+
         self.imagen_boton_menos = None
         self.boton_menos = None
 
@@ -114,6 +117,17 @@ class Interfaz:
         self.imagen_entrada_nueve = None
         self.entrada_nueve = None
 
+        self.imagen_boton_estadisticas = None
+        self.boton_estadisticas = None
+
+        self.imagen_boton_guia = None
+        self.boton_guia = None
+
+        self.imagen_corazon = None
+        self.canva_corazon = None
+
+
+
 
 
 
@@ -134,7 +148,7 @@ class Interfaz:
         self.canvas.place(x=0, y=0)
 
 
-    def imagen_alien(self):
+    def imagen_de_alien(self):
         self.imagen_alien = PhotoImage(
             file=relative_to_assets("image_1.png"))
 
@@ -144,8 +158,17 @@ class Interfaz:
             image=self.imagen_alien
         )
 
+    def imagen_de_corazon(self):
+        self.imagen_corazon = PhotoImage(
+            file=relative_to_assets("image_4.png"))
 
-    def imagen_pokemon(self):
+        self.canva_corazon = canvas.create_image(
+            558.0,
+            27.77828073501587,
+            image=self.imagen_corazon
+        )
+
+    def imagen_de_squirtle(self):
         self.imagen_squirtle = PhotoImage(
             file=relative_to_assets("image_2.png"))
 
@@ -153,6 +176,16 @@ class Interfaz:
             760.0,
             592.0,
             image=self.imagen_squirtle
+        )
+
+    def imagen_de_charizard(self):
+        self.imagen_charizard = PhotoImage(
+            file=relative_to_assets("image_3.png"))
+
+        self.canva_pokemon_charizard = canvas.create_image(
+            90.0,
+            573.0,
+            image=self.imagen_charizard
         )
 
     def boton_de_menos(self):
@@ -518,6 +551,228 @@ class Interfaz:
             height=41.0
         )
 
+    def entrada_de_numero_tres(self):
+        self.canvas.create_rectangle(
+            527.0,
+            115.0,
+            612.0,
+            171.0,
+            fill="#74296D",
+            outline="")
+
+        self.imagen_entrada_tres = PhotoImage(
+            file=relative_to_assets("entry_3.png"))
+
+        self.entry_bg_3 = canvas.create_image(
+            568.5,
+            143.5,
+            image=self.imagen_entrada_tres
+        )
+        self.entrada_tres = Entry(
+            bd=0,
+            bg="#B694FF",
+            fg="#000716",
+            highlightthickness=0
+        )
+
+        self.entrada_tres.place(
+            x=555.0,
+            y=122.0,
+            width=27.0,
+            height=41.0
+        )
+
+    def entrada_de_numero_cuatro(self):
+        self.canvas.create_rectangle(
+            94.0,
+            112.0,
+            179.0,
+            168.0,
+            fill="#74296D",
+            outline="")
+
+        self.imagen_entrada_cuatro = PhotoImage(
+            file=relative_to_assets("entry_4.png"))
+
+        self.entry_bg_4 = canvas.create_image(
+            135.5,
+            140.5,
+            image=self.imagen_entrada_cuatro
+        )
+        self.entrada_cuatro = Entry(
+            bd=0,
+            bg="#B694FF",
+            fg="#000716",
+            highlightthickness=0
+        )
+
+        self.entrada_cuatro.place(
+            x=122.0,
+            y=119.0,
+            width=27.0,
+            height=41.0
+        )
+
+    def entrada_de_numero_cinco(self):
+        self.canvas.create_rectangle(
+            181.0,
+            112.0,
+            266.0,
+            168.0,
+            fill="#74296D",
+            outline="")
+
+        self.imagen_entrada_cinco = PhotoImage(
+            file=relative_to_assets("entry_5.png"))
+        self.entry_bg_5 = canvas.create_image(
+            222.5,
+            140.5,
+            image=self.imagen_entrada_cinco
+        )
+        self.entrada_cinco = Entry(
+            bd=0,
+            bg="#B694FF",
+            fg="#000716",
+            highlightthickness=0
+        )
+        self.entrada_cinco.place(
+            x=209.0,
+            y=119.0,
+            width=27.0,
+            height=41.0
+        )
+
+    def entrada_de_numero_seis(self):
+        self.canvas.create_rectangle(
+            266.0,
+            113.0,
+            351.0,
+            169.0,
+            fill="#74296D",
+            outline="")
+
+        self.imagen_entrada_seis = PhotoImage(
+            file=relative_to_assets("entry_6.png"))
+
+        self.entry_bg_6 = canvas.create_image(
+            307.5,
+            141.5,
+            image=self.imagen_entrada_seis
+        )
+
+        self.entrada_seis = Entry(
+            bd=0,
+            bg="#B694FF",
+            fg="#000716",
+            highlightthickness=0
+        )
+
+        self.entrada_seis.place(
+            x=294.0,
+            y=120.0,
+            width=27.0,
+            height=41.0
+        )
+
+    def entrada_de_numero_siete(self):
+        self.canvas.create_rectangle(
+            353.0,
+            113.0,
+            438.0,
+            169.0,
+            fill="#74296D",
+            outline="")
+
+        self.imagen_entrada_siete = PhotoImage(
+            file=relative_to_assets("entry_7.png"))
+
+        self.entry_bg_7 = canvas.create_image(
+            394.5,
+            141.5,
+            image=self.imagen_entrada_siete
+        )
+        self.entrada_siete = Entry(
+            bd=0,
+            bg="#B694FF",
+            fg="#000716",
+            highlightthickness=0
+        )
+
+        self.entrada_siete.place(
+            x=381.0,
+            y=120.0,
+            width=27.0,
+            height=41.0
+        )
+
+    def entrada_de_numero_ocho(self):
+        self.canvas.create_rectangle(
+            614.0,
+            115.0,
+            699.0,
+            171.0,
+            fill="#74296D",
+            outline="")
+
+        self.imagen_entrada_ocho = PhotoImage(
+            file=relative_to_assets("entry_8.png"))
+
+        self.entry_bg_8 = canvas.create_image(
+            655.5,
+            143.5,
+            image=self.imagen_entrada_ocho
+        )
+        self.entrada_ocho = Entry(
+            bd=0,
+            bg="#B694FF",
+            fg="#000716",
+            highlightthickness=0
+        )
+
+        self.entrada_ocho.place(
+            x=642.0,
+            y=122.0,
+            width=27.0,
+            height=41.0
+        )
+
+
+    def boton_de_estadisticas(self):
+        self.imagen_boton_estadisticas = PhotoImage(
+            file=relative_to_assets("button_17.png"))
+
+        self.boton_estadisticas = Button(
+            image=self.imagen_boton_estadisticas,
+            borderwidth=0,
+            highlightthickness=0,
+            command=lambda: print("button_17 clicked"),
+            relief="flat"
+        )
+        self.boton_estadisticas.place(
+            x=639.0,
+            y=1.0,
+            width=71.0,
+            height=58.0
+        )
+
+
+    def boton_de_guia(self):
+        self.imagen_boton_guia = PhotoImage(
+            file=relative_to_assets("button_18.png"))
+
+        self.boton_guia = Button(
+            image=self.imagen_boton_guia,
+            borderwidth=0,
+            highlightthickness=0,
+            command=lambda: print("button_18 clicked"),
+            relief="flat"
+        )
+        self.boton_guia.place(
+            x=747.0,
+            y=0.0,
+            width=60.0,
+            height=58.0
+        )
 
 
 
@@ -911,6 +1166,9 @@ entry_2.place(
     height=41.0
 )
 
+
+
+#tercer entry
 canvas.create_rectangle(
     527.0,
     115.0,
@@ -939,6 +1197,8 @@ entry_3.place(
     height=41.0
 )
 
+
+#cuarto entry
 canvas.create_rectangle(
     94.0,
     112.0,
@@ -967,6 +1227,8 @@ entry_4.place(
     height=41.0
 )
 
+
+#quinto entry
 canvas.create_rectangle(
     181.0,
     112.0,
@@ -995,6 +1257,8 @@ entry_5.place(
     height=41.0
 )
 
+
+#sexto entry
 canvas.create_rectangle(
     266.0,
     113.0,
@@ -1023,6 +1287,11 @@ entry_6.place(
     height=41.0
 )
 
+
+
+
+
+#septimo entry
 canvas.create_rectangle(
     353.0,
     113.0,
@@ -1051,6 +1320,10 @@ entry_7.place(
     height=41.0
 )
 
+
+
+
+#octaco entry
 canvas.create_rectangle(
     614.0,
     115.0,
@@ -1079,6 +1352,9 @@ entry_8.place(
     height=41.0
 )
 
+
+
+# charizard
 image_image_3 = PhotoImage(
     file=relative_to_assets("image_3.png"))
 image_3 = canvas.create_image(
@@ -1087,6 +1363,8 @@ image_3 = canvas.create_image(
     image=image_image_3
 )
 
+
+#estadisticas
 button_image_17 = PhotoImage(
     file=relative_to_assets("button_17.png"))
 button_17 = Button(
@@ -1103,6 +1381,8 @@ button_17.place(
     height=58.0
 )
 
+
+#boton guia
 button_image_18 = PhotoImage(
     file=relative_to_assets("button_18.png"))
 button_18 = Button(
@@ -1119,6 +1399,9 @@ button_18.place(
     height=58.0
 )
 
+
+
+#corazon
 image_image_4 = PhotoImage(
     file=relative_to_assets("image_4.png"))
 image_4 = canvas.create_image(
@@ -1127,6 +1410,9 @@ image_4 = canvas.create_image(
     image=image_image_4
 )
 
+
+
+#vidas
 entry_image_9 = PhotoImage(
     file=relative_to_assets("entry_9.png"))
 entry_bg_9 = canvas.create_image(
