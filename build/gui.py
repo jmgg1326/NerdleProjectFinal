@@ -78,6 +78,43 @@ class Interfaz:
 
 
 
+        self.entry_bg_1 = None
+        self.imagen_entrada_uno = None
+        self.entrada_uno = None
+
+        self.entry_bg_2 = None
+        self.imagen_entrada_dos = None
+        self.entrada_dos = None
+
+        self.entry_bg_3 = None
+        self.imagen_entrada_tres = None
+        self.entrada_tres = None
+
+        self.entry_bg_4 = None
+        self.imagen_entrada_cuatro = None
+        self.entrada_cuatro = None
+
+        self.entry_bg_5 = None
+        self.imagen_entrada_cinco = None
+        self.entrada_cinco = None
+
+        self.entry_bg_6 = None
+        self.imagen_entrada_seis = None
+        self.entrada_seis = None
+
+        self.entry_bg_7 = None
+        self.imagen_entrada_siete = None
+        self.entrada_siete = None
+
+        self.entry_bg_8 = None
+        self.imagen_entrada_ocho = None
+        self.entrada_ocho = None
+
+        self.entry_bg_9 = None
+        self.imagen_entrada_nueve = None
+        self.entrada_nueve = None
+
+
 
 
 
@@ -418,7 +455,69 @@ class Interfaz:
             width=141.0,
             height=67.0
         )
-        
+
+    def entrada_de_uno(self):
+        self.canvas.create_rectangle(
+            8.0,
+            111.0,
+            93.0,
+            167.0,
+            fill="#74296D",
+            outline="")
+
+        self.imagen_entrada_uno = PhotoImage(
+            file=relative_to_assets("entry_1.png"))
+
+        self.entry_bg_1 = canvas.create_image(
+            49.5,
+            139.5,
+            image=self.imagen_entrada_uno
+        )
+
+        self.entrada_uno = Entry(
+            bd=0,
+            bg="#B694FF",
+            fg="#000716",
+            highlightthickness=0
+        )
+
+        self.entrada_uno.place(
+            x=36.0,
+            y=118.0,
+            width=27.0,
+            height=41.0
+        )
+
+    def entrada_de_numero_dos(self):
+        self.canvas.create_rectangle(
+            440.0,
+            114.0,
+            525.0,
+            170.0,
+            fill="#74296D",
+            outline="")
+
+        self.entrada_dos = PhotoImage(
+            file=relative_to_assets("entry_2.png"))
+        self.entry_bg_2 = canvas.create_image(
+            481.5,
+            142.5,
+            image=self.entrada_dos
+        )
+        self.entrada_dos = Entry(
+            bd=0,
+            bg="#B694FF",
+            fg="#000716",
+            highlightthickness=0
+        )
+
+        self.entrada_dos.place(
+            x=468.0,
+            y=121.0,
+            width=27.0,
+            height=41.0
+        )
+
 
 
 
@@ -749,6 +848,9 @@ button_16.place(
     height=67.0
 )
 
+
+
+#primer entry
 canvas.create_rectangle(
     8.0,
     111.0,
@@ -777,6 +879,10 @@ entry_1.place(
     height=41.0
 )
 
+
+
+
+#segundo entry
 canvas.create_rectangle(
     440.0,
     114.0,
