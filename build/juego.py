@@ -12,6 +12,7 @@ class Juego:
 
         self.vidas = 3
 
+        # se crea el archivo json para almacenar victorias y derrotas
         self.estadisticas = self.cargar_estadisticas()
 
     def cargar_estadisticas(self):

@@ -1,12 +1,15 @@
 from tkinter import PhotoImage, Entry
 from pathlib import Path
 
-from build.gui import relative_to_assets
-
-OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"D:\Juanma\build\assets\frame0")
+CURRENT_PATH = Path(__file__).parent
+ASSETS_PATH = CURRENT_PATH / "build" / "assets" / "frame0"
 
 
+def relative_to_assets(path: str) -> Path:
+    return ASSETS_PATH / Path(path)
+
+
+# clases de entradas , donde aparecera escogencias del usuario, principio OPEN-CLOSED
 class Entrada:
     def __init__(self, canvas, imagen_archivo, x_imagen, y_imagen, x_entrada, y_entrada):
         self.imagen = PhotoImage(file=relative_to_assets(imagen_archivo))

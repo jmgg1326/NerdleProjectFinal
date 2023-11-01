@@ -1,4 +1,4 @@
-from tkinter import Tk, Canvas,  Label, Toplevel,  messagebox
+from tkinter import Tk, Canvas, Label, Toplevel, messagebox
 
 from pathlib import Path
 
@@ -7,8 +7,8 @@ import boton
 import entrada
 from build.juego import Juego
 
-OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"D:\Juanma\build\assets\frame0")
+CURRENT_PATH = Path(__file__).parent
+ASSETS_PATH = CURRENT_PATH / "build" / "assets" / "frame0"
 
 
 class Interfaz:
@@ -50,7 +50,7 @@ class Interfaz:
         self.boton_numero_ocho = boton.BotonNumeroOcho(self.canvas, self)
         self.boton_numero_nueve = boton.BotonNumeroNueve(self.canvas, self)
 
-        self.boton_estadisticas = boton.BotonEstadisticas(self.canvas)
+        self.boton_estadisticas = boton.BotonEstadisticas(self.canvas, self)
         self.boton_guia = boton.BotonGuia(self.canvas, self)
 
         # Crea un botón para verificar la adivinanza
@@ -59,8 +59,10 @@ class Interfaz:
         # Crea un botón para limpiar los campos de entrada
         self.boton_limpiar = boton.BotonLimpiar(self.canvas, self)
 
+        # verificar posicion actual de mis entrys
         self.indice_entrada_actual = 0
 
+        # crear instancias de imagenes
         self.imagen_squirtle = imagenes.ImagenSquirtle(self.canvas)
         self.imagen_alien = imagenes.ImagenDeAlien(self.canvas)
         self.imagen_charizard = imagenes.ImagenDeCharizard(self.canvas)
@@ -75,6 +77,7 @@ class Interfaz:
         self.imagen_estrella_siete = imagenes.ImagenEstrella(self.canvas, "image_11.png", 796.0, 227.0)
         self.imagen_estrella_ocho = imagenes.ImagenEstrella(self.canvas, "image_12.png", 54.999990463256836, 424.0)
 
+        # generar instancias de las entrys
         self.entrada_uno = entrada.EntradaUno(self.canvas)
         self.entrada_dos = entrada.EntradaCuatro(self.canvas)
         self.entrada_tres = entrada.EntradaCinco(self.canvas)
@@ -86,6 +89,7 @@ class Interfaz:
         self.entrada_nueve = entrada.EntradaNueve(self.canvas)
         self.entrada_vidas = entrada.NumeroVidas(self.canvas)
 
+        # crear lista de entrys para saber posicion actual
         self.entradas = [
             self.entrada_uno,
             self.entrada_dos,
@@ -101,7 +105,6 @@ class Interfaz:
     def iniciar(self):
         self.actualizar_vidas()
         self.window.mainloop()
-
 
     def verificar_adivinanza(self):
         # Obtiene la adivinanza del jugador de las entradas

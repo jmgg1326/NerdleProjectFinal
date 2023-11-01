@@ -5,6 +5,7 @@ from email.mime.base import MIMEBase
 from email import encoders
 
 
+# clase encargada de la informacion de estadisticas y correos
 class Informacion:
     def __init__(self, juego):
         self.juego = juego

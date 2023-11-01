@@ -2,14 +2,15 @@ from tkinter import PhotoImage, Tk, Canvas
 
 from pathlib import Path
 
-from build.gui import relative_to_assets
-
-OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"D:\Juanma\build\assets\frame0")
+CURRENT_PATH = Path(__file__).parent
+ASSETS_PATH = CURRENT_PATH / "build" / "assets" / "frame0"
 
 
+def relative_to_assets(path: str) -> Path:
+    return ASSETS_PATH / Path(path)
 
 
+# clases encargadas de las imagenes, principio OPEN-CLOSED
 class Imagen:
     def __init__(self, canvas, imagen_archivo, x, y):
         self.imagen = PhotoImage(file=relative_to_assets(imagen_archivo))
@@ -60,7 +61,6 @@ class Guia:
         )
         self.canvas.place(x=0, y=0)
 
-        
         self.canvas.create_text(
             1.0,
             235.00000000000006,
@@ -124,13 +124,6 @@ class Guia:
             font=("PressStart2P Regular", 15 * -1)
         )
 
-
-        
     def mostrar(self):
         self.window.resizable(False, False)
         self.window.mainloop()
-
-
-
-
-

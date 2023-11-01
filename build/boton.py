@@ -1,12 +1,18 @@
-from tkinter import Tk, Canvas, PhotoImage, Button, Entry
+from tkinter import  PhotoImage, Button,  Toplevel
 
 from pathlib import Path
 
-from build.gui import relative_to_assets
+from matplotlib import pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+
 from build.informacion import Informacion
 
-OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"D:\Juanma\build\assets\frame0")
+CURRENT_PATH = Path(__file__).parent
+ASSETS_PATH = CURRENT_PATH / "build" / "assets" / "frame0"
+
+
+def relative_to_assets(path: str) -> Path:
+    return ASSETS_PATH / Path(path)
 
 
 class Boton:
@@ -117,11 +123,22 @@ class BotonEstadisticas:
 
     def on_click(self):
         print("BotonEstadisticas clicked")
-        #  poner el código para mostrar las estadísticas
         informacion = Informacion(self.interfaz.juego)
-        informacion.crear_grafico()
-        informacion.enviar_por_correo('direccion_de_correo@ejemplo.com')
 
+        # Crea una nueva ventana
+        ventana = Toplevel()
+
+        # Genera el gráfico
+        fig = plt.Figure(figsize=(5, 5), dpi=100)
+        victorias = self.interfaz.juego.estadisticas['victorias']
+        derrotas = self.interfaz.juego.estadisticas['derrotas']
+        ax = fig.add_subplot(111)
+        ax.scatter(['Victorias', 'Derrotas'], [victorias, derrotas])
+
+        # Muestra el gráfico en la ventana de tkinter
+        canvas = FigureCanvasTkAgg(fig, master=ventana)
+        canvas.draw()
+        canvas.get_tk_widget().pack()
 
 
 class BotonGuia:
@@ -167,5 +184,3 @@ class BotonLimpiar:
             relief="flat"
         )
         self.boton.place(x=432, y=526, width=93.0, height=62.0)
-
-
