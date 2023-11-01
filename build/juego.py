@@ -40,6 +40,6 @@ class Juego:
             elif adivinanza[i] in self.secuencia_objetivo:
                 feedback.append('yellow')  # Elemento correcto en la posición incorrecta
             else:
-                feedback.append('red')  # Elemento incorrecto
+                feedback.append('#808080')  # Elemento incorrecto gray color
 
         return feedback
