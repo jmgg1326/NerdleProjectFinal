@@ -1,8 +1,6 @@
-from tkinter import Tk, Canvas, Button, Label, Toplevel
+from tkinter import Tk, Canvas, Button, Label, Toplevel, PhotoImage
 
 from pathlib import Path
-
-
 
 import imagenes
 import boton
@@ -53,21 +51,13 @@ class Interfaz:
         self.boton_numero_nueve = boton.BotonNumeroNueve(self.canvas, self)
 
         self.boton_estadisticas = boton.BotonEstadisticas(self.canvas)
-        self.boton_guia = boton.BotonGuia(self.canvas)
+        self.boton_guia = boton.BotonGuia(self.canvas, self)
 
         # Crea un botón para verificar la adivinanza
-        self.boton_verificar = Button(
-            text="Verificar",
-            command=self.verificar_adivinanza
-        )
-        self.boton_verificar.pack()  # Ajusta la posición y el estilo del botón según sea necesario
+        self.boton_verificar = boton.BotonVerificar(self.canvas, self)
 
         # Crea un botón para limpiar los campos de entrada
-        self.boton_limpiar = Button(
-            text="Limpiar",
-            command=self.vaciar_entradas
-        )
-        self.boton_limpiar.pack()  # Ajusta la posición y el estilo del botón según sea necesario
+        self.boton_limpiar = boton.BotonLimpiar(self.canvas, self)
 
         self.indice_entrada_actual = 0
 
@@ -95,7 +85,6 @@ class Interfaz:
         self.entrada_ocho = entrada.EntradaOcho(self.canvas)
         self.entrada_nueve = entrada.EntradaNueve(self.canvas)
         self.entrada_vidas = entrada.NumeroVidas(self.canvas)
-
 
         self.entradas = [
             self.entrada_uno,
@@ -188,6 +177,11 @@ class Interfaz:
 
         # Muestra la etiqueta
         etiqueta.pack()
+
+    def guia(self):
+        # Crea una nueva ventana
+        ventana_guia = imagenes.Guia()
+        ventana_guia.mostrar()
 
 
 interfaz = Interfaz()

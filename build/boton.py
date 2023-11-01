@@ -119,13 +119,13 @@ class BotonEstadisticas:
 
 
 class BotonGuia:
-    def __init__(self, canvas):
+    def __init__(self, canvas, interfaz):
         self.imagen = PhotoImage(file=relative_to_assets("button_18.png"))
         self.boton = Button(
             image=self.imagen,
             borderwidth=0,
             highlightthickness=0,
-            command=self.on_click,
+            command=interfaz.guia,
             relief="flat"
         )
         self.boton.place(x=747.0, y=0, width=60.0, height=58.0)
@@ -133,3 +133,33 @@ class BotonGuia:
     def on_click(self):
         print("BotonGuia clicked")
         # Aquí puedes poner el código para mostrar la guía
+
+
+class BotonVerificar:
+
+    def __init__(self, canvas, interfaz):
+        self.imagen = PhotoImage(file=relative_to_assets("verificar.png"))
+        self.boton = Button(
+            image=self.imagen,
+            borderwidth=0,
+            highlightthickness=0,
+            command=interfaz.verificar_adivinanza,
+            relief="flat"
+        )
+        self.boton.place(x=252, y=526, width=93.0, height=62.0)
+
+
+class BotonLimpiar:
+
+    def __init__(self, canvas, interfaz):
+        self.imagen = PhotoImage(file=relative_to_assets("verificar.png"))
+        self.boton = Button(
+            image=self.imagen,
+            borderwidth=0,
+            highlightthickness=0,
+            command=interfaz.vaciar_entradas,
+            relief="flat"
+        )
+        self.boton.place(x=432, y=526, width=93.0, height=62.0)
+
+
