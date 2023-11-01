@@ -1,4 +1,4 @@
-from tkinter import Tk, Canvas, PhotoImage, Button, Entry
+from tkinter import  PhotoImage,  Entry
 from pathlib import Path
 
 from build.gui import relative_to_assets
@@ -12,11 +12,15 @@ class Entrada:
         self.imagen = PhotoImage(file=relative_to_assets(imagen_archivo))
         self.entry_bg = canvas.create_image(x_imagen, y_imagen, image=self.imagen)
         self.entrada = Entry(
-            bd=1,
+            bd=0,  # Sin borde
             bg="#B694FF",
             fg="#000716",
-            highlightthickness=0
+            highlightthickness=0,  # Sin resaltado
+            exportselection=False  # Deshabilita la opción de copiar
         )
+
+        self.entrada.bind("<Key>", lambda e: "break")
+
         self.entrada.place(x=x_entrada + 10, y=y_entrada + 10, width=50, height=20)  # Ajusta las coordenadas aquí
 
 

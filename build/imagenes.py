@@ -1,4 +1,4 @@
-from tkinter import Tk, Canvas, PhotoImage, Button, Entry
+from tkinter import  PhotoImage
 
 from pathlib import Path
 
