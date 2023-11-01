@@ -51,11 +51,9 @@ class Interfaz:
         self.boton_estadisticas = boton.BotonEstadisticas(self.canvas)
         self.boton_guia = boton.BotonGuia(self.canvas)
 
-        # ... y así sucesivamente para todos los botones
 
-        # Crear instancias de las clases de entradas
 
-        self.indice_entrada_actual = 0  # El índice del próximo espacio vacío
+        self.indice_entrada_actual = 0
 
         self.imagen_squirtle = imagenes.ImagenSquirtle(self.canvas)
         self.imagen_alien = imagenes.ImagenDeAlien(self.canvas)
@@ -82,28 +80,31 @@ class Interfaz:
         self.entrada_nueve = entrada.EntradaNueve(self.canvas)
         self.numero_vidas = entrada.NumeroVidas(self.canvas)
 
-    """ self.entradas = [
-            self.entrada_uno,
-            self.entrada_dos,
-            self.entrada_tres,
-            self.entrada_cuatro,
-            self.entrada_cinco,
-            self.entrada_seis,
-            self.entrada_siete,
-            self.entrada_ocho,
-            self.entrada_nueve
-        ]"""
+        self.entradas = [
+                self.entrada_uno,
+                self.entrada_dos,
+                self.entrada_tres,
+                self.entrada_cuatro,
+                self.entrada_cinco,
+                self.entrada_seis,
+                self.entrada_siete,
+                self.entrada_ocho,
+                self.entrada_nueve
+            ]
 
     def iniciar(self):
         self.window.mainloop()
 
-
-""" def insertar_simbolo(self, simbolo):
-        print(f"Insertando símbolo {simbolo}")
+    def insertar_simbolo(self, simbolo):
         if self.indice_entrada_actual < len(self.entradas):
+            # Inserta el símbolo en el Entry actual
             self.entradas[self.indice_entrada_actual].entrada.insert(0, simbolo)
+
+            # Incrementa el índice para el próximo Entry
             self.indice_entrada_actual += 1
-            self.window.update_idletasks()  # Agrega esta línea"""
+
+            # Actualiza la interfaz
+            self.window.update_idletasks()
 
 interfaz = Interfaz()
 interfaz.iniciar()
