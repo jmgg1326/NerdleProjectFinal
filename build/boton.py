@@ -3,6 +3,7 @@ from tkinter import Tk, Canvas, PhotoImage, Button, Entry
 from pathlib import Path
 
 from build.gui import relative_to_assets
+from build.informacion import Informacion
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"D:\Juanma\build\assets\frame0")
@@ -58,7 +59,7 @@ class BotonNumeroDos(Boton):
 
 class BotonNumeroUno(Boton):
     def __init__(self, canvas, interfaz):
-        super().__init__(canvas, "button_8.png", 63.0, 206.0, 141.0, 67.0, interfaz, "2")
+        super().__init__(canvas, "button_8.png", 63.0, 206.0, 141.0, 67.0, interfaz, "1")
 
 
 class BotonNumeroTres(Boton):
@@ -102,7 +103,8 @@ class BotonNumeroOcho(Boton):
 
 
 class BotonEstadisticas:
-    def __init__(self, canvas):
+    def __init__(self, canvas, interfaz):
+        self.interfaz = interfaz
         self.imagen = PhotoImage(file=relative_to_assets("button_17.png"))
         self.boton = Button(
             image=self.imagen,
@@ -115,7 +117,11 @@ class BotonEstadisticas:
 
     def on_click(self):
         print("BotonEstadisticas clicked")
-        # Aquí puedes poner el código para mostrar las estadísticas
+        #  poner el código para mostrar las estadísticas
+        informacion = Informacion(self.interfaz.juego)
+        informacion.crear_grafico()
+        informacion.enviar_por_correo('direccion_de_correo@ejemplo.com')
+
 
 
 class BotonGuia:
@@ -152,7 +158,7 @@ class BotonVerificar:
 class BotonLimpiar:
 
     def __init__(self, canvas, interfaz):
-        self.imagen = PhotoImage(file=relative_to_assets("verificar.png"))
+        self.imagen = PhotoImage(file=relative_to_assets("Limpiar.png"))
         self.boton = Button(
             image=self.imagen,
             borderwidth=0,

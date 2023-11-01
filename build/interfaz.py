@@ -1,4 +1,4 @@
-from tkinter import Tk, Canvas, Button, Label, Toplevel, PhotoImage
+from tkinter import Tk, Canvas,  Label, Toplevel,  messagebox
 
 from pathlib import Path
 
@@ -102,6 +102,7 @@ class Interfaz:
         self.actualizar_vidas()
         self.window.mainloop()
 
+
     def verificar_adivinanza(self):
         # Obtiene la adivinanza del jugador de las entradas
         adivinanza = [ent.entrada.get() for ent in self.entradas]
@@ -116,7 +117,9 @@ class Interfaz:
 
         # Si la adivinanza es correcta, muestra un mensaje de victoria y reinicia el juego
         if feedback == ['green'] * len(self.juego.secuencia_objetivo):
-            print("¡Has ganado! Reiniciando el juego...")  # O muestra este mensaje en la interfaz
+            messagebox.showinfo("¡Felicidades!", "¡Has ganado! Reiniciando el juego...")
+            self.juego.estadisticas['victorias'] += 1
+            self.juego.guardar_estadisticas()
             self.reiniciar_juego()
 
         # Si la adivinanza es incorrecta, reduce las vidas del jugador
@@ -125,7 +128,9 @@ class Interfaz:
 
             # Si no quedan vidas, muestra un mensaje de derrota y reinicia el juego
             if self.juego.vidas == 0:
-                print("¡Has perdido! Reiniciando el juego...")  # O muestra este mensaje en la interfaz
+                messagebox.showinfo("Lo siento", "¡Has perdido! Reiniciando el juego...")
+                self.juego.estadisticas['derrotas'] += 1
+                self.juego.guardar_estadisticas()
                 self.mostrar_secuencia_objetivo()
                 self.reiniciar_juego()
 

@@ -1,4 +1,4 @@
-from tkinter import  PhotoImage,  Entry
+from tkinter import PhotoImage, Entry
 from pathlib import Path
 
 from build.gui import relative_to_assets
@@ -27,7 +27,6 @@ class Entrada:
 class EntradaUno(Entrada):
     def __init__(self, canvas):
         super().__init__(canvas, "entry_1.png", 69, 139.5, 36.0, 118.0)
-
 
 
 class EntradaDos(Entrada):
@@ -73,4 +72,3 @@ class EntradaNueve(Entrada):
 class NumeroVidas(Entrada):
     def __init__(self, canvas):
         super().__init__(canvas, "entry_9.png", 475.5, 34.5, 440.0, 13.0)
-
