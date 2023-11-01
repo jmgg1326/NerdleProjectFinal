@@ -1,12 +1,13 @@
+import os
 from tkinter import PhotoImage, Entry
 from pathlib import Path
 
 CURRENT_PATH = Path(__file__).parent
-ASSETS_PATH = CURRENT_PATH / "build" / "assets" / "frame0"
+ASSETS_PATH = CURRENT_PATH / "assets" / "frame0"
 
 
-def relative_to_assets(path: str) -> Path:
-    return ASSETS_PATH / Path(path)
+def relative_to_assets(path: str) -> str:
+    return os.path.join(ASSETS_PATH, path)
 
 
 # clases de entradas , donde aparecera escogencias del usuario, principio OPEN-CLOSED

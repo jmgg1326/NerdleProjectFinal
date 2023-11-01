@@ -1,4 +1,5 @@
-from tkinter import  PhotoImage, Button,  Toplevel
+import os
+from tkinter import PhotoImage, Button, Toplevel
 
 from pathlib import Path
 
@@ -8,11 +9,11 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from build.informacion import Informacion
 
 CURRENT_PATH = Path(__file__).parent
-ASSETS_PATH = CURRENT_PATH / "build" / "assets" / "frame0"
+ASSETS_PATH = CURRENT_PATH / "assets" / "frame0"
 
 
-def relative_to_assets(path: str) -> Path:
-    return ASSETS_PATH / Path(path)
+def relative_to_assets(path: str) -> str:
+    return os.path.join(ASSETS_PATH, path)
 
 
 class Boton:

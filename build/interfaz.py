@@ -1,3 +1,4 @@
+import os
 from tkinter import Tk, Canvas, Label, Toplevel, messagebox
 
 from pathlib import Path
@@ -8,7 +9,11 @@ import entrada
 from build.juego import Juego
 
 CURRENT_PATH = Path(__file__).parent
-ASSETS_PATH = CURRENT_PATH / "build" / "assets" / "frame0"
+ASSETS_PATH = CURRENT_PATH / "assets" / "frame0"
+
+
+def relative_to_assets(path: str) -> str:
+    return os.path.join(ASSETS_PATH, path)
 
 
 class Interfaz:
