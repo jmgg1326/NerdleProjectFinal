@@ -940,11 +940,15 @@ class Interfaz:
         )
 
         self.numero_vidas.place(
-            x=451.0,
+            x=498.0,
             y=13.0,
             width=49.0,
             height=41.0
         )
+
+
+
+
 
 
 

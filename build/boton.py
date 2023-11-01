@@ -128,7 +128,7 @@ class BotonGuia:
             command=self.on_click,
             relief="flat"
         )
-        self.boton.place(x=747.0, y=0.0, width=60.0, height=58.0)
+        self.boton.place(x=747.0, y=0, width=60.0, height=58.0)
 
     def on_click(self):
         print("BotonGuia clicked")

@@ -49,33 +49,12 @@ class Interfaz:
         self.boton_numero_nueve = boton.BotonNumeroNueve(self.canvas, self)
 
         self.boton_estadisticas = boton.BotonEstadisticas(self.canvas)
-        self.boton_guia = boton.BotonEstadisticas(self.canvas)
+        self.boton_guia = boton.BotonGuia(self.canvas)
 
         # ... y así sucesivamente para todos los botones
 
         # Crear instancias de las clases de entradas
-        self.entrada_uno = entrada.EntradaUno(self.canvas)
-        self.entrada_dos = entrada.EntradaDos(self.canvas)
-        self.entrada_tres = entrada.EntradaTres(self.canvas)
-        self.entrada_cuatro = entrada.EntradaCuatro(self.canvas)
-        self.entrada_cinco = entrada.EntradaCinco(self.canvas)
-        self.entrada_seis = entrada.EntradaSeis(self.canvas)
-        self.entrada_siete = entrada.EntradaSiete(self.canvas)
-        self.entrada_ocho = entrada.EntradaOcho(self.canvas)
-        self.entrada_nueve = entrada.EntradaNueve(self.canvas)
-        self.numero_vidas = entrada.NumeroVidas(self.canvas)
 
-        self.entradas = [
-            self.entrada_uno,
-            self.entrada_dos,
-            self.entrada_tres,
-            self.entrada_cuatro,
-            self.entrada_cinco,
-            self.entrada_seis,
-            self.entrada_siete,
-            self.entrada_ocho,
-            self.entrada_nueve
-        ]
         self.indice_entrada_actual = 0  # El índice del próximo espacio vacío
 
         self.imagen_squirtle = imagenes.ImagenSquirtle(self.canvas)
@@ -92,16 +71,39 @@ class Interfaz:
         self.imagen_estrella_siete = imagenes.ImagenEstrella(self.canvas, "image_11.png", 796.0, 227.0)
         self.imagen_estrella_ocho = imagenes.ImagenEstrella(self.canvas, "image_12.png", 54.999990463256836, 424.0)
 
+        self.entrada_uno = entrada.EntradaUno(self.canvas)
+        self.entrada_dos = entrada.EntradaCuatro(self.canvas)
+        self.entrada_tres = entrada.EntradaCinco(self.canvas)
+        self.entrada_cuatro = entrada.EntradaSeis(self.canvas)
+        self.entrada_cinco = entrada.EntradaSiete(self.canvas)
+        self.entrada_seis = entrada.EntradaDos(self.canvas)
+        self.entrada_siete = entrada.EntradaTres(self.canvas)
+        self.entrada_ocho = entrada.EntradaOcho(self.canvas)
+        self.entrada_nueve = entrada.EntradaNueve(self.canvas)
+        self.numero_vidas = entrada.NumeroVidas(self.canvas)
+
+    """ self.entradas = [
+            self.entrada_uno,
+            self.entrada_dos,
+            self.entrada_tres,
+            self.entrada_cuatro,
+            self.entrada_cinco,
+            self.entrada_seis,
+            self.entrada_siete,
+            self.entrada_ocho,
+            self.entrada_nueve
+        ]"""
+
     def iniciar(self):
         self.window.mainloop()
 
-    def insertar_simbolo(self, simbolo):
+
+""" def insertar_simbolo(self, simbolo):
         print(f"Insertando símbolo {simbolo}")
         if self.indice_entrada_actual < len(self.entradas):
             self.entradas[self.indice_entrada_actual].entrada.insert(0, simbolo)
             self.indice_entrada_actual += 1
-            self.window.update_idletasks()  # Agrega esta línea
-
+            self.window.update_idletasks()  # Agrega esta línea"""
 
 interfaz = Interfaz()
 interfaz.iniciar()
