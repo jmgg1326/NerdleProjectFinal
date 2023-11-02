@@ -22,7 +22,7 @@ class Informacion:
 
     def enviar_por_correo(self, direccion_correo):
         msg = MIMEMultipart()
-        msg['From'] = 'tu_correo@gmail.com'
+        msg['From'] = 'jeronimoperezintentoso@gmail.com'
         msg['To'] = direccion_correo
         msg['Subject'] = 'Gráfico de Victorias vs Derrotas'
 
@@ -35,6 +35,6 @@ class Informacion:
 
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
-        server.login('tu_correo@gmail.com', 'tu_contraseña')
+        server.login('jeronimoperezintentoso@gmail.com', 'juanmanuelvasquez')
         server.send_message(msg)
         server.quit()

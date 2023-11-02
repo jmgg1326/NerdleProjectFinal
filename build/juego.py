@@ -27,9 +27,20 @@ class Juego:
             json.dump(self.estadisticas, f)
 
     def generar_secuencia_objetivo(self):
-        # Genera una secuencia aleatoria de 8 elementos
-        return [random.choice(self.elementos) for _ in range(8)]
-        # return "123456789"
+        # Genera cuatro números aleatorios
+        num1 = str(random.randint(10, 99))
+        num2 = str(random.randint(10, 99))
+
+        # Genera una operación aleatoria
+        operacion = random.choice(['+', '-', '*', '/'])
+
+        # Calcula el resultado de la operación
+        resultado = str(int(eval(num1 + operacion + num2)))
+
+        # Crea la secuencia objetivo
+        secuencia_objetivo = list(num1 + operacion + num2 + "=" + resultado)
+
+        return secuencia_objetivo
 
     def comprobar_adivinanza(self, adivinanza):
         # Comprueba si la adivinanza del jugador coincide con la secuencia objetivo

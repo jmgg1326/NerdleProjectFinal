@@ -1,5 +1,5 @@
 import os
-from tkinter import PhotoImage, Button, Toplevel
+from tkinter import PhotoImage, Button, Toplevel, Label, Entry
 
 from pathlib import Path
 
@@ -129,17 +129,23 @@ class BotonEstadisticas:
         # Crea una nueva ventana
         ventana = Toplevel()
 
-        # Genera el gráfico
-        fig = plt.Figure(figsize=(5, 5), dpi=100)
-        victorias = self.interfaz.juego.estadisticas['victorias']
-        derrotas = self.interfaz.juego.estadisticas['derrotas']
-        ax = fig.add_subplot(111)
-        ax.scatter(['Victorias', 'Derrotas'], [victorias, derrotas])
+        # Crea un campo de entrada para la dirección de correo electrónico
+        etiqueta_correo = Label(ventana, text="Dirección de correo electrónico:")
+        etiqueta_correo.pack()
+        entrada_correo = Entry(ventana)
+        entrada_correo.pack()
 
-        # Muestra el gráfico en la ventana de tkinter
-        canvas = FigureCanvasTkAgg(fig, master=ventana)
-        canvas.draw()
-        canvas.get_tk_widget().pack()
+        # Crea un botón para enviar el correo
+        boton_enviar = Button(ventana, text="Enviar",
+                              command=lambda: self.enviar_grafico(entrada_correo.get(), informacion))
+        boton_enviar.pack()
+
+    def enviar_grafico(self, direccion_correo, informacion):
+        # Genera el gráfico
+        informacion.crear_grafico()
+
+        # Envía el gráfico por correo electrónico
+        informacion.enviar_por_correo(direccion_correo)
 
 
 class BotonGuia:
